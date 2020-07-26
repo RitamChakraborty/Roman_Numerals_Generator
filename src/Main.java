@@ -5,8 +5,27 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Enter number (less than 3999): ");
-            int num = scanner.nextInt();
+            boolean correctInput = false;
+            int num = 0;
+
+            while (!correctInput) {
+                System.out.println("Enter number (less than 3999): ");
+                String numStr = scanner.next();
+
+                try {
+                    num = Integer.parseInt(numStr);
+
+                    if (num < 0 || num > 3999) {
+                        throw new NumberOverflowException();
+                    } else {
+                        correctInput = true;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Please enter a number!");
+                } catch (NumberOverflowException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
 
             System.out.println("Enter '0' to exit.");
 
