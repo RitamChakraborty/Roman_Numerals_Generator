@@ -51,12 +51,10 @@ public class RomanNumeralConvector {
         return new ArrayList<>(deque);
     }
 
-    public static void main(String[] args) {
-        System.out.println(new RomanNumeralConvector().getBrokenNumber(3888));
-    }
-
     public String convertToRoman(int num) {
         StringBuilder stringBuilder = new StringBuilder();
+        List<Integer> list = getBrokenNumber(num);
+        list.stream().map(romanNumerals::get).forEach(stringBuilder::append);
 
         return stringBuilder.toString();
     }
