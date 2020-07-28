@@ -1,22 +1,18 @@
+package controller;
+
+import data.RomanNumerals;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class RomanNumeralConvector {
-    private final Map<Integer, String> romanNumerals;
+    private final RomanNumerals romanNumerals;
 
     public RomanNumeralConvector() {
-        romanNumerals = new HashMap<>();
-
-        romanNumerals.put(1, "I");
-        romanNumerals.put(5, "V");
-        romanNumerals.put(10, "X");
-        romanNumerals.put(50, "L");
-        romanNumerals.put(100, "C");
-        romanNumerals.put(500, "D");
-        romanNumerals.put(1000, "M");
+        romanNumerals = RomanNumerals.getInstance();
     }
 
-    public List<Integer> getBrokenNumber(int num) {
+    private List<Integer> getBrokenNumber(int num) {
         Deque<Integer> deque = new ArrayDeque<>();
         int index = 0;
         int power = 0;
@@ -54,7 +50,8 @@ public class RomanNumeralConvector {
     public String convertToRoman(int num) {
         StringBuilder stringBuilder = new StringBuilder();
         List<Integer> list = getBrokenNumber(num);
-        list.stream().map(romanNumerals::get).forEach(stringBuilder::append);
+        list.stream().map(x -> romanNumerals.map().get(x))
+                .forEach(stringBuilder::append);
 
         return stringBuilder.toString();
     }
