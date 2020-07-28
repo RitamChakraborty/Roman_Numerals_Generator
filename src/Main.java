@@ -17,7 +17,7 @@ public class Main {
 
                     if (num < 0 || num > 3999) {
                         throw new NumberOverflowException();
-                    } else {
+                    } else if (num != 0) {
                         correctInput = true;
                         RomanNumeralConvector romanNumeralConvector = new RomanNumeralConvector();
                         String roman = romanNumeralConvector.convertToRoman(num);
