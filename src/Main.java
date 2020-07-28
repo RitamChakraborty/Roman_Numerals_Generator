@@ -23,6 +23,8 @@ public class Main {
                         String roman = romanNumeralConvector.convertToRoman(num);
 
                         System.out.println(num + " in roman numeral is: " + roman);
+                    } else {
+                        correctInput = true;
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("Please enter a number!");
