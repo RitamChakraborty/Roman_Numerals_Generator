@@ -19,6 +19,10 @@ public class Main {
                         throw new NumberOverflowException();
                     } else {
                         correctInput = true;
+                        RomanNumeralConvector romanNumeralConvector = new RomanNumeralConvector();
+                        String roman = romanNumeralConvector.convertToRoman(num);
+
+                        System.out.println(num + " in roman numeral is: " + roman);
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("Please enter a number!");
