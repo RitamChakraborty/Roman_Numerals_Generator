@@ -47,7 +47,7 @@ This is a command line app written in *Java* which converts numbers between 1 an
     
 ## How to play
 - Make sure *Java 8 or higher* is installed in your system.
-- Dowload the *.jar* file from [here](https://github.com/RitamChakraborty/Roman_Numerals_Generator/releases/download/v1.0/Roman.Numerals.Generator.jar).
+- Download the *.jar* file from [here](https://github.com/RitamChakraborty/Roman_Numerals_Generator/releases/download/v1.1/Roman.Numerals.Generator.jar).
 - Run
 
         java -jar Roman.Numerals.Generator.jar
