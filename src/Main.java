@@ -30,16 +30,16 @@ public class Main {
                         correctInput = true;
                     }
                 } catch (NumberFormatException e) {
-                    System.out.println("Please enter a number!");
+                    System.out.println("Please enter a number!\n");
                 } catch (NumberOverflowException e) {
-                    System.out.println(e.getMessage());
+                    System.out.println(e.getMessage() + "\n");
                 }
             }
 
-            System.out.println("Enter '0' to exit.");
-
             if (num == 0) {
                 break;
+            } else {
+                System.out.println("Enter '0' to exit.\n");
             }
         }
     }
