@@ -2,7 +2,12 @@ package test;
 
 import controller.RomanNumeralConvector;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.IntStream;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class Test {
     RomanNumeralConvector romanNumeralConvector = new RomanNumeralConvector();
@@ -75,5 +80,18 @@ public class Test {
         int num = 3999;
         String expect = "MMMCMXCIX";
         assertEquals(expect, romanNumeralConvector.convertToRoman(num));
+    }
+
+    @org.junit.Test
+    public void regexCheck() {
+        Pattern pattern =
+                Pattern.compile("^(M){0,3}(?!M)(C){0,3}[DM]?(C){0,3}(X){0,3}[CL]?(X){0,3}(I){0,3}[XV]?(I){0,3}$");
+
+        boolean allMatch = IntStream.rangeClosed(0, 3999).boxed().allMatch(n -> {
+            String roman = romanNumeralConvector.convertToRoman(n);
+            Matcher matcher = pattern.matcher(roman);
+            return matcher.matches();
+        });
+        assertTrue(allMatch);
     }
 }
